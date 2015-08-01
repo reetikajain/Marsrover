@@ -36,15 +36,9 @@ public class Position {
 		return y;
 		
 	}
-	public int boundaryCheck(Position B, MarsRover mr)
+	public boolean boundaryCheck(Position B, MarsRover mr)
 	{
-		if(B.x>=mr.R.x && B.y >=mr.R.y)
-		{
-			return 1;
-		}
-		
-			return 0;
-		
+		return (B.x>=mr.R.x && B.y >=mr.R.y);
 	}
 	
 	

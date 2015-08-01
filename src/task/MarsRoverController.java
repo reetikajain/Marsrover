@@ -19,15 +19,11 @@ class MarsRover {
         Integer i;
         Integer len = s.length();
         for (i = 0; i < len; i++) {
-            if (str.indexOf(s.charAt(i)) == -1)
-
-            {
+            if (str.indexOf(s.charAt(i)) == -1) {
                 System.out.println("Invalid instruction");
                 break;
             }
         }
-
-
     }
 
     public int rovercheck(int limit, int coordinate) {
@@ -48,34 +44,32 @@ public class MarsRoverController {
         System.out.println("Enter the upper right coordinates of the plateau");
         Position position = new Position();
         position.input();
-        MarsRover mr = new MarsRover("mr1");
+        MarsRover marsRover = new MarsRover("mr1");
         System.out.println("Enter rover1 details");
-        mr.init();
+        marsRover.init();
 
-        if (position.boundaryCheck(position, mr)) {
-            Direction d1 = new Direction(position, "LMLMLMLMM", mr, 'N');
+        if (position.boundaryCheck(position, marsRover)) {
+            Direction d1 = new Direction(position, "LMLMLMLMM", marsRover, 'N');
             if (d1.checkDir()) {
                 d1.evaluate();
             } else {
                 System.out.println("invalid direction");
             }
-            MarsRover mr1 = new MarsRover("mr2");
+            marsRover = new MarsRover("mr2");
             System.out.println("Enter rover2 details");
-            mr1.init();
-            if (position.boundaryCheck(position, mr1)) {
+            marsRover.init();
+            if (position.boundaryCheck(position, marsRover)) {
 
-                Direction d2 = new Direction(position, "MMRMMRMRRM", mr1, 'E');
+                Direction d2 = new Direction(position, "MMRMMRMRRM", marsRover, 'E');
 
                 if (d2.checkDir()) {
                     d2.evaluate();
                 } else {
                     System.out.println("invalid direction");
                 }
-
             }
         } else {
             System.out.println("Incorrect placement..check again");
         }
-
     }
 }
